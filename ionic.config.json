@@ -1,0 +1,7 @@
+{
+  "name": "show-spot",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
