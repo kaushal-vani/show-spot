@@ -26,8 +26,7 @@ import {
   IonCardTitle,
   IonCardSubtitle,
   IonText,
-  IonCardContent,
-} from '@ionic/angular/standalone';
+  IonCardContent, IonIcon } from '@ionic/angular/standalone';
 import { MovieService } from '../services/movie.service';
 import { MovieResult } from '../services/movie.interface';
 import { addIcons } from 'ionicons';
@@ -39,7 +38,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
   standalone: true,
-  imports: [
+  imports: [IonIcon, 
     IonCardContent,
     IonText,
     IonCardSubtitle,
