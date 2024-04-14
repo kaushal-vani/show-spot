@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable, delay } from 'rxjs';
+import { Observable, delay, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ApiResult, MovieResult } from './movie.interface';
+import { ApiResult, LatestMovies, MovieResult, Result } from './movie.interface';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = environment.apiKey;
@@ -12,6 +12,7 @@ const API_KEY = environment.apiKey;
 })
 export class MovieService {
   private http = inject(HttpClient);
+  latestMovies: LatestMovies[] = [];
 
   constructor() {}
 
@@ -26,5 +27,18 @@ export class MovieService {
     return this.http.get<MovieResult>(
       `${BASE_URL}/movie/${id}?api_key=${API_KEY}`
     );
+  }
+
+  getLatestMovies(): Observable<LatestMovies[]> {
+    return this.http
+      .get<LatestMovies[]>(
+        `${BASE_URL}/movie/popular?page=1&api_key=${API_KEY}&limit=5`
+      )
+      .pipe(
+        map((response: LatestMovies[]) => {
+          this.latestMovies = response;
+          return response;
+        })
+      );
   }
 }
