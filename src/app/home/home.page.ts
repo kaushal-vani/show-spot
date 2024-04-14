@@ -20,30 +20,32 @@ import { catchError, finalize } from 'rxjs';
 import { MovieResult } from '../services/movie.interface';
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { LatestMovieComponent } from '..';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
-  standalone: true,
-  imports: [
-    IonInfiniteScrollContent,
-    IonInfiniteScroll,
-    IonBadge,
-    DatePipe,
-    IonAlert,
-    IonAvatar,
-    IonContent,
-    IonHeader,
-    IonItem,
-    IonLabel,
-    IonList,
-    IonSkeletonText,
-    IonTitle,
-    IonToolbar,
-    RouterModule,
-    DecimalPipe
-  ],
+    selector: 'app-home',
+    templateUrl: 'home.page.html',
+    styleUrls: ['home.page.scss'],
+    standalone: true,
+    imports: [
+        IonInfiniteScrollContent,
+        IonInfiniteScroll,
+        IonBadge,
+        DatePipe,
+        IonAlert,
+        IonAvatar,
+        IonContent,
+        IonHeader,
+        IonItem,
+        IonLabel,
+        IonList,
+        IonSkeletonText,
+        IonTitle,
+        IonToolbar,
+        RouterModule,
+        DecimalPipe,
+        LatestMovieComponent
+    ]
 })
 export class HomePage implements OnInit {
   private currentPage = 1;
