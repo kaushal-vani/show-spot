@@ -10,7 +10,7 @@ export interface MovieResult {
   backdrop_path: string;
   belong_to_collection?: any;
   budget: number;
-  genre: Genre[];
+  genres: Genre[];
   homepage: string;
   id: number;
   imdb_id: string;

@@ -77,7 +77,7 @@ export class DetailsPage {
   @Input()
   set id(movieId: string) {
     this.movieService.getMovieDetails(movieId).subscribe((movie) => {
-      console.log(movie.title);
+      console.log(movie.genres);
       this.movie.set(movie);
     });
   }
