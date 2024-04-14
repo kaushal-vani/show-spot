@@ -37,7 +37,7 @@
         <h3>{{item.title}}</h3>
         <p>{{item.release_date | date:'short'}}</p>
       </ion-label>
-      <ion-badge slot="end">{{item.vote_average}}</ion-badge>
+      <ion-badge slot="end">{{item.vote_average | number: '1.1-1'}}</ion-badge>
     </ion-item>
     } @empty { @if(!isLoading){
     <ion-item lines="none">

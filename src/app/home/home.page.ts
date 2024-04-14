@@ -18,7 +18,7 @@ import {
 import { MovieService } from '../services/movie.service';
 import { catchError, finalize } from 'rxjs';
 import { MovieResult } from '../services/movie.interface';
-import { DatePipe } from '@angular/common';
+import { DatePipe, DecimalPipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -42,6 +42,7 @@ import { RouterModule } from '@angular/router';
     IonTitle,
     IonToolbar,
     RouterModule,
+    DecimalPipe
   ],
 })
 export class HomePage implements OnInit {
