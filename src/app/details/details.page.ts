@@ -26,11 +26,14 @@ import {
   IonCardTitle,
   IonCardSubtitle,
   IonText,
-  IonCardContent, IonIcon } from '@ionic/angular/standalone';
+  IonCardContent,
+  IonIcon,
+  IonToast,
+} from '@ionic/angular/standalone';
 import { MovieService } from '../services/movie.service';
 import { MovieResult } from '../services/movie.interface';
 import { addIcons } from 'ionicons';
-import { cashOutline, calendarOutline } from 'ionicons/icons';
+import { cashOutline, calendarOutline, addOutline } from 'ionicons/icons';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -38,7 +41,9 @@ import { RouterModule } from '@angular/router';
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
   standalone: true,
-  imports: [IonIcon, 
+  imports: [
+    IonToast,
+    IonIcon,
     IonCardContent,
     IonText,
     IonCardSubtitle,
@@ -73,6 +78,15 @@ export class DetailsPage {
   private movieService = inject(MovieService);
   public imageBaseUrl = 'https://image.tmdb.org/t/p';
   public movie: WritableSignal<MovieResult | null> = signal(null);
+  isToastOpen = false;
+  isDisabled = false;
+  watchListAdd = true
+
+  setOpen(isOpen: boolean) {
+    this.isToastOpen = isOpen;
+    this.isDisabled = true
+    this.watchListAdd = false
+  }
 
   @Input()
   set id(movieId: string) {
@@ -83,6 +97,6 @@ export class DetailsPage {
   }
 
   constructor() {
-    addIcons({ cashOutline, calendarOutline });
+    addIcons({ cashOutline, calendarOutline, addOutline });
   }
 }
